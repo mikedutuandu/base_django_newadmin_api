@@ -17,8 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 
+from rest_framework import routers
+from apps.users.api import views
+
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls'))
 ]
