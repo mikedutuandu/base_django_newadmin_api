@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import include, url
 
 from rest_framework import routers
-from apps.users.api import views
+from frontapps.users.api import views
 
 
 router = routers.DefaultRouter()
