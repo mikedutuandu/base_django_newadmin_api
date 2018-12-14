@@ -23,6 +23,11 @@ from frontapps.users.api import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib.auth import views as auth_views
+
+
+from adminapps.users.views import UserListView
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -33,10 +38,15 @@ urlpatterns = [
 
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+
+
+    #accounts
+    path('ad/login', auth_views.LoginView.as_view(template_name='admin/acounts/login.html')),
+
+
+    #users
+
+    url(r'^ad/users/$', UserListView.as_view(), name='users_list'),
 ]
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
