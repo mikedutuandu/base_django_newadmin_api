@@ -18,7 +18,6 @@ from django.urls import path
 from django.conf.urls import include, url
 
 from rest_framework import routers
-from frontapps.users.api import views
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,19 +25,12 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 
-from adminapps.users.views import UserListView
+from apps.admins.views import UserListView
 
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls')),
-
 
     #accounts
     path('ad/login', auth_views.LoginView.as_view(template_name='admin/acounts/login.html')),
