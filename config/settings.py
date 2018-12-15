@@ -40,6 +40,11 @@ INSTALLED_APPS = [
 
     #rest
     'rest_framework',
+
+    'crispy_forms',
+
+    #app
+    'apps.fronts'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +147,33 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+
+
+# Custom Django auth settings
+
+AUTH_USER_MODEL = 'fronts.User'
+
+LOGIN_URL = 'login'
+
+LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = 'home'
+
+LOGOUT_REDIRECT_URL = 'home'
+
+
+# Messages built-in framework
+
+# MESSAGE_TAGS = {
+#     messages.DEBUG: 'alert-secondary',
+#     messages.INFO: 'alert-info',
+#     messages.SUCCESS: 'alert-success',
+#     messages.WARNING: 'alert-warning',
+#     messages.ERROR: 'alert-danger',
+# }
+
+
+# Third party apps configuration
+
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
