@@ -22,4 +22,9 @@ urlpatterns = [
         path('quiz/<int:quiz_pk>/question/<int:question_pk>/', teachers.question_change, name='question_change'),
         path('quiz/<int:quiz_pk>/question/<int:question_pk>/delete/', teachers.QuestionDeleteView.as_view(), name='question_delete'),
     ], 'classroom'), namespace='teachers')),
+
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', classroom.SignUpView.as_view(), name='signup'),
+    path('accounts/signup/student/', students.StudentSignUpView.as_view(), name='student_signup'),
+    path('accounts/signup/teacher/', teachers.TeacherSignUpView.as_view(), name='teacher_signup'),
 ]
