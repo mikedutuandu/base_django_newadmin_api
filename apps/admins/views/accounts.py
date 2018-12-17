@@ -16,6 +16,10 @@ def login_view(request):
         else:
             # Return an 'invalid login' error message.
             return redirect('users:admin_users_list')
+    else:
+        if request.user.is_authenticated and request.user.is_staff:
+            return redirect('admin_dashboard')
+
     return render(request, 'accounts/login.html')
 
 
