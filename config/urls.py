@@ -15,8 +15,15 @@ urlpatterns = [
 #     # url(r'^ad/users/$', UserListView.as_view(), name='users_list'),
 
 
-    path('', include('apps.fronts.urls')),
-    path('admin/', include('apps.admins.urls')),
+
+
+
+    path('', include('apps.mylove.urls')),
+
+
+    #path('', include('apps.fronts.urls')),
+    #path('admin/', include('apps.admins.urls')),
+
 
 
 ]

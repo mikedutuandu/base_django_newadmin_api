@@ -1,0 +1,52 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My love</title>
+    <link rel="icon" href="{% static 'img/love.png' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<!-- The video -->
+<video id="myVideo" controls preload="auto">
+    <source src="{% static 'video/love.mp4' %}" type="video/mp4">
+</video>
+
+
+<style>
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        #myVideo {
+            top: 200px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        body {
+            background-image: url({% static 'img/love_bg.gif' %});
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    }
+
+</style>
+
+</body>
+</html>
