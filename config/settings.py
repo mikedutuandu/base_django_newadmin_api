@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     #apps
     'apps.fronts',
     'apps.admins',
-    'apps.mylove'
 ]
 
 MIDDLEWARE = [
